@@ -1,0 +1,23 @@
+Given a number n, find the cube root of n.
+
+Note: We need to print the floor value of the result.
+
+//code
+ int cubeRoot(int n) {
+        // code here
+        int l=1;
+        int h=n;
+        long ans=INT_MIN;
+        while(l<=h){
+            long mid=(l+h)/2;
+            if(mid*mid*mid==n){
+                return mid;
+            }else if(mid*mid*mid>n){
+                h=mid-1;
+            }else{
+                ans=max(ans,mid);
+                l=mid+1;
+            }
+        }
+        return ans;
+    }
